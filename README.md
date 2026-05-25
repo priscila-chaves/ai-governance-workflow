@@ -20,3 +20,4 @@ The model establishes a **clear separation of responsibilities** across three co
 
 ## Workflow Diagram
 
+assets/ai-governance-workflow.png
