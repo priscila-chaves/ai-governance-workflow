@@ -1,0 +1,56 @@
+%% EU AI Act — Governance Operating Model v2.0
+%% AI Risk Assessment Workflow — canonical Mermaid source
+%% Renders on GitHub and in any Mermaid-compatible tool.
+
+flowchart TD
+    Idea([AI use-case idea]) --> S1
+
+    S1["01 · FORM<br/>Submit use case<br/>→ Intake record"]
+    S2["02 · SELF-SERVE<br/>5-question binary triage<br/>→ Triage decision"]
+    S1 --> S2 --> Triage{"&gt;70%<br/>self-clear?"}
+
+    Triage -->|"fast lane · low-risk bypass"| S8
+    Triage -->|"needs formal review"| S3
+
+    S3["03 · FORMAL · 24h<br/>EU AI Act categorization<br/>→ Risk tier + route"]
+    S3 --> Tier{Risk tier?}
+
+    Tier -->|prohibited| Stop([Blocked at intake — no exceptions])
+    Tier -->|minimal / limited| S8
+    Tier -->|high risk| S4 & S5 & S6
+
+    S4["04 · TECHNICAL<br/>Model · data · bias · security · DPIA<br/>→ Assessment dossier"]
+    S5["05 · VENDOR DD<br/>Third-party AI only<br/>→ Vendor pack"]
+    S6["06 · FRIA<br/>Fundamental Rights Impact Assessment<br/>→ FRIA report"]
+
+    S4 & S5 & S6 --> S7{"07 · GATE<br/>Board reviews combined dossier"}
+
+    S7 -->|reject| Rej([Not deployed])
+    S7 -->|approve / conditional| S8
+
+    S8["08 · REGISTER<br/>AI inventory · logging · oversight · rollback<br/>→ Inventory entry"]
+    S9["09 · GO-LIVE<br/>Launch · brief users · disclose<br/>→ User disclosure"]
+    S8 --> S9 --> S10
+
+    S10["10 · MONITOR<br/>Drift · fairness · performance<br/>→ Monitoring KPIs"]
+    S11["11 · OVERSIGHT<br/>Quarterly portfolio review<br/>→ Audit-ready record"]
+    S12["12 · OPERATE<br/>Run within controls · report incidents &lt;72h<br/>→ Incident log"]
+
+    S10 --> S11
+    S10 --> S12 --> S10
+    S10 -.->|"material change → re-assess"| S3
+
+    %% Owner lanes — blue: Business Unit · green: AI CoE · amber: Legal & Compliance · purple: AI Risk Governance Board
+    classDef bu fill:#E8F0FE,stroke:#3B6FD4,color:#0B1F44
+    classDef coe fill:#E9F7EF,stroke:#1E8E5A,color:#0B2A1C
+    classDef legal fill:#FEF3E0,stroke:#D98A0B,color:#3A2700
+    classDef board fill:#F3E8FE,stroke:#7B3FD4,color:#240B44
+    classDef decision fill:#FFFFFF,stroke:#5B6470,color:#1A1F26
+    classDef stop fill:#FDECEC,stroke:#D14343,color:#4A0D0D
+
+    class S1,S2,S9,S12 bu
+    class S3,S4,S5,S8,S10 coe
+    class S6 legal
+    class S7,S11 board
+    class Triage,Tier,Idea decision
+    class Stop,Rej stop
