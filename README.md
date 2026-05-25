@@ -20,7 +20,5 @@ The model establishes a **clear separation of responsibilities** across three co
 
 ## Workflow Diagram
 
-![AI Governance Workflow](assets/ai-governance-workflow-2.png)
-``
-Flowchart in mermaid.live 
-https://mermaid.ai/app/projects/3622cf0b-17d4-4c0d-aa66-788bba747e95/diagrams/ac442efe-c60a-442a-9543-a3593bb38e92/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiYWM0NDJlZmUtYzYwYS00NDJhLTk1NDMtYTM1OTNiYjM4ZTkyIiwiYWNjZXNzIjoiVmlldyIsImlhdCI6MTc3OTcwMzY3MH0.d1mR1GavCb5VPVlV-U4PvoIGwqez1XCZWilCgdu3gk0?entryPoint=share-modal
+![AI Governance Workflow](assets/ai-governance-workflow-3.pdf)
+
